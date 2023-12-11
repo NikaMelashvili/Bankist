@@ -1,9 +1,5 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
 // Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
@@ -61,10 +57,6 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
@@ -96,33 +88,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const movementsDescription = movements.map((move, i, arr) =>
   `Movement ${i + 1}: You ${move > 0 ? 'deposited' : 'withrew'} ${Math.abs(move)};`
 );
-console.log(movementsDescription)
-/////////////////////////////////////////////////
-
-// const julia1 = [3,5,2,12,7];
-// const kate1 = [4,1,15,8,3];
-
-// const julia2 = [9,16,6,8,3];
-// const kate2 = [10,5,6,1,4];
-
-// const checker = function (arr1, arr2){
-//   const newArr = arr1.slice();
-//   newArr.splice(0,1);
-//   newArr.splice(-2);
-  
-//   const dogs = newArr.concat(arr2);
-//   dogs.forEach(function(e, i){
-//     if(e >= 3){
-//       console.log("dogs big"+   i)
-//     } else{
-//       console.log("dogs small"+  i)
-//     }
-//   });
-// }
-// checker(julia1, kate1);
-
-
-
 const eurToUsd = 1.1;
 
 const movementsUsd = movements.map(move => move * eurToUsd
