@@ -1,10 +1,3 @@
 # bankist
 
-A bank application using JavaScript. This 
-project is from a course by Jonas Schmedtmann
-where most of the functionality is based on
-the ES6 array methods like map, filter, reduce,
-splice, split and find. We use the chained 
-functions to achive a very detailed result. 
-This is an excelent project to demonstrate my
-knowledge in working with arrays in javascript.
+A bank application using JavaScript, based on a course by Jonas Schmedtmann, where most of the functionality relies on ES6 array methods such as map, filter, reduce, splice, split, and find. Chained functions are utilized extensively to achieve detailed results. This project serves as an excellent demonstration of my knowledge in working with arrays in JavaScript.
