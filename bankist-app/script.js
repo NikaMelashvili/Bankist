@@ -173,8 +173,29 @@ const displaySummary = function (acc) {
   labelSumInterest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 
+const startLogOutTimer = () => {
+  const tick = () => {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+    // print remaining time
+    labelTimer.textContent = `${min}:${sec}`;
+    // time at 0 = stop the timer and log out
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = `Log in to get started`;
+      containerApp.style.opacity = 0;
+    }
+    time--;
+  };
+  // 5 minute timer
+  let time = 120;
+  // calling it every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
 // Event handlerss
-let currentAccount;
+let currentAccount, timer;
 
 // Fake login for implementing features
 
@@ -220,6 +241,10 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginUsername.blur();
     inputLoginPin.blur();
+    if (timer) {
+      clearInterval(timer);
+    }
+    timer = startLogOutTimer();
     updateUI(currentAccount);
   }
 });
@@ -241,6 +266,8 @@ btnTransfer.addEventListener('click', function (e) {
     recever.movementsDates.push(new Date().toISOString());
 
     updateUI(currentAccount);
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
   inputTransferAmount.value = inputTransferTo.value = '';
 });
@@ -265,14 +292,14 @@ btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
   const amount = Math.floor(inputLoanAmount.value);
-  if (
-    amount > 0 &&
-    currentAccount.movements.some(move => move >= amount / 10)
-  ) {
-    currentAccount.movements.push(amount);
-    currentAccount.movementsDates.push(new Date().toISOString());
-    updateUI(currentAccount);
-  }
+  if (amount > 0 && currentAccount.movements.some(move => move >= amount / 10))
+    setTimeout(function () {
+      currentAccount.movements.push(amount);
+      currentAccount.movementsDates.push(new Date().toISOString());
+      updateUI(currentAccount);
+      clearInterval(timer);
+      timer = startLogOutTimer();
+    }, 2500);
   inputLoanAmount.value = '';
 });
 
