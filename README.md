@@ -1,6 +1,6 @@
 # Bankist
 
-A bank application using JavaScript, based on a course by Jonas Schmedtmann, where most of the functionality relies on ES6 array methods such as map, filter, reduce, splice, slice and find. Chained functions are utilized extensively to achieve detailed results. This project serves as an excellent demonstration of my knowledge in working with arrays in JavaScript.
+A bank application developed using JavaScript, as per a course by Jonas Schmedtmann, heavily reliant on ES6 array methods such as map, filter, reduce, splice, slice, and find. Extensive use of chained functions showcases a comprehensive understanding of working with arrays in JavaScript. The project serves as an exemplary demonstration of my array manipulation skills. Moreover, the application utilizes the Internationalization API to provide localization-based features. Additionally, the manipulation of setTimeout and setInterval methods contributes to achieving various functionalities showcased on the hosted website.
 
 #How it works
 
